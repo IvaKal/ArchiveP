@@ -1,7 +1,6 @@
 import { useState } from "react";
 import './index.css'
 
-
 function Search() {
   const [value, setValue] = useState("");
   return (
@@ -12,6 +11,7 @@ function Search() {
           setValue(event.target.value);
         }}
       />
+      <img src="/img/search.svg" />
     </div>
   );
 }
