@@ -4,7 +4,7 @@ import Header from "./components/Header";
 import CatSelector from "./components/CatSelector";
 
 function App() {
-  const [data, setData] = useState("");
+  const [data, setData] = useState([]);
   useEffect(function () {
     fetch("/data.json").then(async function (res) {
       setData(JSON.parse(await res.text()));

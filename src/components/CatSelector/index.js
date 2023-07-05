@@ -12,9 +12,13 @@ function CatSelector() {
           return (
             <div
               onClick={function () {
-                setCat(key);
                 setSubCat("");
                 setSubSubCat("");
+                if (cat==key) {
+                  setCat("");
+                } else {
+                  setCat(key);
+                }
               }}
             >
               {catLabels[key]}
@@ -28,8 +32,12 @@ function CatSelector() {
             return (
               <div
                 onClick={function () {
-                  setSubCat(key);
                   setSubSubCat("");
+                  if (subCat==key) {
+                    setSubCat("");
+                  } else {
+                    setSubCat(key);
+                  }
                 }}
               >
                 {catLabels[key]}
@@ -43,7 +51,11 @@ function CatSelector() {
             return (
               <div
                 onClick={function () {
+                  if (subSubCat==key) {
+                    setSubSubCat("");
+                  } else {
                     setSubSubCat(key);
+                  }
                 }}
               >
                 {catLabels[key]}
