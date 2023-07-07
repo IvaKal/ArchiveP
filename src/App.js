@@ -1,9 +1,14 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
-import CatSelector from "./components/CatSelector";
+import TopBar from "./components/TopBar";
+import Content from "./components/Content";
 
 function App() {
+  const searchState = useState("");
+  const catState = useState("");
+  const subCatState = useState("");
+  const subSubCatState = useState("");
   const [data, setData] = useState([]);
   useEffect(function () {
     fetch("/data.json").then(async function (res) {
@@ -12,8 +17,20 @@ function App() {
   }, []);
   return (
     <div>
-      <Header data={data} />
-      <CatSelector data={data} />
+      <TopBar searchState={searchState} catState={catState} />
+      <Header
+        searchState={searchState}
+        catState={catState}
+        subCatState={subCatState}
+        subSubCatState={subSubCatState}
+      />
+      <Content
+        data={data}
+        searchState={searchState}
+        catState={catState}
+        subCatState={subCatState}
+        subSubCatState={subSubCatState}
+      />
     </div>
   );
 }
@@ -29,8 +46,8 @@ export const cats = {
     crime: [],
   },
   socialPolitics: {
-    healthcare: []
-  }
+    healthcare: [],
+  },
 };
 
 export const catLabels = {
@@ -50,11 +67,11 @@ export const catLabels = {
   utilities: "ინფრასტრუქტურა, ტრანსპორტი და მშენებლობა",
   privatization: "პრივატიზაცია და რესტრუქტურიზაცია",
   international: "საგარეო ეკონომიკური ურთიერთობები",
-  general: "ზოგადი (სექტორთაშორისი) პოლიტიკა; პოლიტიკის დოკუმენტები და ანალიტიკა",
+  general:
+    "ზოგადი (სექტორთაშორისი) პოლიტიკა; პოლიტიკის დოკუმენტები და ანალიტიკა",
   crime: "ეკონომიკური დანაშაული და კორუფცია",
   socialPolitics: "სოციალური პოლიტიკა",
-  healthcare: "ჯანდაცვა"
-}
-
+  healthcare: "ჯანდაცვა",
+};
 
 export default App;

@@ -1,14 +1,13 @@
-import { useState } from "react";
 import './index.css'
 
-function Search() {
-  const [value, setValue] = useState("");
+function Search(props) {
+  const [search, setSearch] = props.searchState
   return (
     <div className="search">
       <input
-        value={value}
+        value={search}
         onChange={function (event) {
-          setValue(event.target.value);
+          setSearch(event.target.value);
         }}
       />
       <img src="/img/search.svg" />

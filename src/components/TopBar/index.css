@@ -1,0 +1,25 @@
+.TopBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  .TopBar input {
+    padding: 5px 10px;
+    border-radius: 30px;
+    border: 1px solid #ccc;
+    width: 300px;
+  }
+  
+  .TopBar input:focus {
+    box-shadow: 0 0 8px rgb(102 175 233 / 30%);
+    outline: none;
+    border-color: rgb(102 175 233 / 30%);
+  }
+  
+  .TopBar img {
+    height: 18px;
+    position: absolute;
+    right: 6px;
+  }

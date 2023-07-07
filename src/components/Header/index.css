@@ -1,4 +1,4 @@
-.header {
+.Header {
   flex-direction: row;
   display: flex;
   justify-content: space-evenly;
@@ -12,7 +12,7 @@
   padding: 30px 10px;
 }
 
-.header .middle {
+.Header .HeaderMiddle {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -21,4 +21,13 @@
   border-left: 1px solid #ccc;
   border-right: 1px solid #ccc;
   align-items: center;
+}
+
+.Header .cat {
+  background-color: transparent
+}
+
+.Header .cat.active {
+  border: 1px solid #AAA;
+  background-color: #EEE;
 }
