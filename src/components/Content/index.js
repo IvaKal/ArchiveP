@@ -1,5 +1,6 @@
 import React from "react";
 import { catLabels } from "../../App";
+import "./index.css";
 
 function Content(props) {
   const [cat] = props.catState;
@@ -9,7 +10,7 @@ function Content(props) {
   const data = props.data;
 
   return (
-    <div className="content">
+    <div className="Content">
       {data.map(function (document) {
         if (
           (cat && document.cat !== catLabels[cat]) ||
@@ -17,7 +18,7 @@ function Content(props) {
           (subSubCat && document.subSubCat !== catLabels[subSubCat])
         )
           return <></>;
-        return <div>{document.name}</div>;
+        return <div>{document.name}<div className="documentYear">{document.year}</div></div>;
       })}
     </div>
   );

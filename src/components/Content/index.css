@@ -1,0 +1,28 @@
+.Content {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1350px;
+    margin: auto;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+}
+.Content > div {
+    height: 200px;
+    min-width: 300px;
+    max-width: 30%;
+    flex-grow: 1;
+    background-color:#eeeeeea3;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    position: relative;
+
+}
+.documentYear {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: small;
+
+}

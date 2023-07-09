@@ -9,39 +9,44 @@ function Header(props) {
   return (
     <div className="Header">
       <div className="HeaderLeft">
-        {Object.keys(cats).map(function (key) {
-          let className = 'cat';
-          if (key === cat) className = 'cat active'
-          return (
-            <div
-              onClick={function () {
-                setSubCat("");
-                setSubSubCat("");
-                if (cat == key) {
-                  setCat("");
-                } else {
-                  setCat(key);
-                }
-              }}
-              className={className}
-            >
-              {catLabels[key]}
-            </div>
-          );
-        })}
+        <div className="catContainer">
+          {Object.keys(cats).map(function (key) {
+            let className = "cat";
+            if (key === cat) className = "cat active";
+            return (
+              <div
+                className={className}
+                onClick={function () {
+                  setSubCat("");
+                  setSubSubCat("");
+                  if (cat == key) {
+                    setCat("");
+                  } else {
+                    setCat(key);
+                  }
+                }}
+              >
+                {catLabels[key]}
+              </div>
+            );
+          })}
+        </div>
       </div>
       <div className="HeaderMiddle">
         {!cat && (
-          <>
+          <div className="HeaderSearchContainer">
             <h1>ARCHIVE</h1>
             <Search searchState={props.searchState} />
-          </>
+          </div>
         )}
-        <div>
           {cat &&
+          <div className="catContainer"> {
             Object.keys(cats[cat]).map(function (key) {
+              let className = "subCat";
+              if (key === subCat) className = "subCat active";
               return (
                 <div
+                  className={className}
                   onClick={function () {
                     setSubSubCat("");
                     if (subCat == key) {
@@ -54,28 +59,34 @@ function Header(props) {
                   {catLabels[key]}
                 </div>
               );
-            })}
+            })
+          }</div>}
+        </div>
+      <div className="HeaderRight">
+          {subCat &&
+          <div className="catContainer"> {
+            cats[cat][subCat].map(function (key) {
+              let className = "subSubCat";
+              if (key === subSubCat) className = "subSubCat active";
+              return (
+                <div
+                  className={className}
+                  onClick={function () {
+                    if (subSubCat == key) {
+                      setSubSubCat("");
+                    } else {
+                      setSubSubCat(key);
+                    }
+                  }}
+                >
+                  {catLabels[key]}
+                </div>
+              );
+            })
+            }</div>
+            }
         </div>
       </div>
-      <div className="HeaderRight">
-        {subCat &&
-          cats[cat][subCat].map(function (key) {
-            return (
-              <div
-                onClick={function () {
-                  if (subSubCat == key) {
-                    setSubSubCat("");
-                  } else {
-                    setSubSubCat(key);
-                  }
-                }}
-              >
-                {catLabels[key]}
-              </div>
-            );
-          })}
-      </div>
-    </div>
   );
 }
 
