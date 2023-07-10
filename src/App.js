@@ -10,6 +10,8 @@ function App() {
   const subCatState = useState("");
   const subSubCatState = useState("");
   const [data, setData] = useState([]);
+  const yearState = useState();
+  const departmentState = useState("");
   useEffect(function () {
     fetch("/data.json").then(async function (res) {
       setData(JSON.parse(await res.text()));
@@ -30,6 +32,8 @@ function App() {
         catState={catState}
         subCatState={subCatState}
         subSubCatState={subSubCatState}
+        yearState={yearState}
+        departmentState={departmentState}
       />
     </div>
   );

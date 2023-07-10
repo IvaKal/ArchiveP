@@ -12,7 +12,7 @@
     min-width: 300px;
     max-width: 30%;
     flex-grow: 1;
-    background-color:#eeeeeea3;
+    background-color:#eeeeee;
     padding: 20px;
     box-sizing: border-box;
     border-radius: 10px;
@@ -24,5 +24,17 @@
     top: 0;
     right: 0;
     font-size: small;
+    background-color:#e0e0e0;
+    padding: 3px 8px;
+    border-radius: 6px;
 
+}
+.documentDepartment {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: small;
+    background-color:#e0e0e0;
+    padding: 3px 8px;
+    border-radius: 6px;
 }
