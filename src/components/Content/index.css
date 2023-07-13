@@ -17,19 +17,10 @@
     box-sizing: border-box;
     border-radius: 10px;
     position: relative;
+    text-align: left;
 
 }
 .documentYear {
-    position: absolute;
-    top: 0;
-    right: 0;
-    font-size: small;
-    background-color:#e0e0e0;
-    padding: 3px 8px;
-    border-radius: 6px;
-
-}
-.documentDepartment {
     position: absolute;
     bottom: 0;
     right: 0;

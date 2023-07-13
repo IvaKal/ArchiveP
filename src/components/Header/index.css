@@ -10,7 +10,8 @@
   max-width: 1350px;
   height: 420px;
   padding: 30px 10px;
-  cursor: default
+  cursor: default;
+  font-family: 'BPG Nateli Mtavruli', sans-serif;
 }
 
 .Header .HeaderMiddle {

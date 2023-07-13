@@ -3,9 +3,12 @@ import "./App.css";
 import Header from "./components/Header";
 import TopBar from "./components/TopBar";
 import Content from "./components/Content";
+import "/node_modules/bpg-nateli/css/bpg-nateli.min.css";
+import "/node_modules/bpg-nateli-mtavruli/css/bpg-nateli-mtavruli.min.css";
+import { sortData } from "./helpers/sort";
 
 function App() {
-  const searchState = useState("");
+  const searchState = useState(null);
   const catState = useState("");
   const subCatState = useState("");
   const subSubCatState = useState("");
@@ -14,12 +17,12 @@ function App() {
   const departmentState = useState("");
   useEffect(function () {
     fetch("/data.json").then(async function (res) {
-      setData(JSON.parse(await res.text()));
+      setData((await res.json()).sort(sortData));
     });
   }, []);
   return (
     <div>
-      <TopBar searchState={searchState} catState={catState} />
+      <TopBar searchState={searchState} data={data} catState={catState} />
       <Header
         searchState={searchState}
         catState={catState}

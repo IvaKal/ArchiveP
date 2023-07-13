@@ -33,15 +33,9 @@ function Header(props) {
         </div>
       </div>
       <div className="HeaderMiddle">
-        {!cat && (
-          <div className="HeaderSearchContainer">
-            <h1>ARCHIVE</h1>
-            <Search searchState={props.searchState} />
-          </div>
-        )}
-          {cat &&
-          <div className="catContainer"> {
-            Object.keys(cats[cat]).map(function (key) {
+        {cat && (
+          <div className="catContainer">
+            {Object.keys(cats[cat]).map(function (key) {
               let className = "subCat";
               if (key === subCat) className = "subCat active";
               return (
@@ -59,13 +53,15 @@ function Header(props) {
                   {catLabels[key]}
                 </div>
               );
-            })
-          }</div>}
-        </div>
+            })}
+          </div>
+        )}
+      </div>
       <div className="HeaderRight">
-          {subCat &&
-          <div className="catContainer"> {
-            cats[cat][subCat].map(function (key) {
+        {subCat && (
+          <div className="catContainer">
+            {" "}
+            {cats[cat][subCat].map(function (key) {
               let className = "subSubCat";
               if (key === subSubCat) className = "subSubCat active";
               return (
@@ -82,11 +78,11 @@ function Header(props) {
                   {catLabels[key]}
                 </div>
               );
-            })
-            }</div>
-            }
-        </div>
+            })}
+          </div>
+        )}
       </div>
+    </div>
   );
 }
 

@@ -1,6 +1,7 @@
 import React from "react";
 import { catLabels } from "../../App";
 import "./index.css";
+import { findDOMNode } from "react-dom";
 
 function Content(props) {
   const [cat] = props.catState;
@@ -24,7 +25,10 @@ function Content(props) {
       departments.push(department);
     }
   }
-
+  let results = data;
+  if (search !== null) {
+    results = search;
+  }
   return (
     <>
       <div>
@@ -52,7 +56,15 @@ function Content(props) {
         </select>
       </div>
       <div className="Content">
-        {data.map(function (document) {
+        {results.map(function (result) {
+          let document = result;
+          let nameIndices = result.matches?.find(function (match) {
+            return match.key === "name"
+          })?.indices;
+
+          if (document.item) {
+            document = document.item;
+          }
           if (
             (cat && document.cat !== catLabels[cat]) ||
             (subCat && document.subCat !== catLabels[subCat]) ||
@@ -62,10 +74,22 @@ function Content(props) {
           )
             return <></>;
           return (
+            // [ [0, 5], [7, 10] ]
             <div>
-              {document.name}
-              <div className="documentYear">{document.year}</div>
-              <div className="documentDepartment">{document.department}</div>
+              {document.name.split("").map(function (char, i) {
+                if (
+                  nameIndices &&
+                  nameIndices.find(function (range) {
+                    return i >= range[0] && i <= range[1];
+                  })
+                ) {
+                  return <b>{char}</b>;
+                }
+                return char;
+              })}
+              <div className="documentYear">
+                {document.year} · {document.department}{" "}
+              </div>
             </div>
           );
         })}
