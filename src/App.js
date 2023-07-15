@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import Header from "./components/Header";
+import SideBar from "./components/SideBar";
 import TopBar from "./components/TopBar";
 import Content from "./components/Content";
 import "/node_modules/bpg-nateli/css/bpg-nateli.min.css";
@@ -23,21 +23,26 @@ function App() {
   return (
     <div>
       <TopBar searchState={searchState} data={data} catState={catState} />
-      <Header
-        searchState={searchState}
-        catState={catState}
-        subCatState={subCatState}
-        subSubCatState={subSubCatState}
-      />
-      <Content
-        data={data}
-        searchState={searchState}
-        catState={catState}
-        subCatState={subCatState}
-        subSubCatState={subSubCatState}
-        yearState={yearState}
-        departmentState={departmentState}
-      />
+      <div className="contentContainer">
+        <SideBar
+          searchState={searchState}
+          catState={catState}
+          subCatState={subCatState}
+          subSubCatState={subSubCatState}
+          yearState={yearState}
+          departmentState={departmentState}
+          data={data}
+        />
+        <Content
+          data={data}
+          searchState={searchState}
+          catState={catState}
+          subCatState={subCatState}
+          subSubCatState={subSubCatState}
+          yearState={yearState}
+          departmentState={departmentState}
+        />
+      </div>
     </div>
   );
 }

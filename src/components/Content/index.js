@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { catLabels } from "../../App";
 import "./index.css";
-import { findDOMNode } from "react-dom";
+import Document from "./Document";
 
 function Content(props) {
   const [cat] = props.catState;
@@ -11,55 +11,26 @@ function Content(props) {
   const [year, setYear] = props.yearState;
   const [department, setDepartment] = props.departmentState;
   const data = props.data;
-  const years = ["წელი"];
-  for (let index = 0; index < data.length; index++) {
-    const year = parseInt(data[index].year);
-    if (!years.includes(year)) {
-      years.push(year);
-    }
-  }
-  const departments = ["უწყება"];
-  for (let index = 0; index < data.length; index++) {
-    const department = data[index].department;
-    if (!departments.includes(department)) {
-      departments.push(department);
-    }
-  }
+  const [selected, setSelected] = useState(null);
   let results = data;
   if (search !== null) {
     results = search;
   }
   return (
     <>
-      <div>
-        <select
-          onChange={function (event) {
-            setYear(parseInt(event.target.value));
+      {selected !== null && (
+        <Document
+          data={data[selected]}
+          onClose={function () {
+            setSelected(null);
           }}
-        >
-          {years.map(function (year) {
-            return <option value={year}>{year}</option>;
-          })}
-        </select>
-        <select
-          onChange={function (event) {
-            if (event.target.value === "უწყება") {
-              setDepartment("");
-            } else {
-              setDepartment(event.target.value);
-            }
-          }}
-        >
-          {departments.map(function (department) {
-            return <option value={department}>{department}</option>;
-          })}
-        </select>
-      </div>
+        />
+      )}
       <div className="Content">
-        {results.map(function (result) {
+        {results.map(function (result, index) {
           let document = result;
           let nameIndices = result.matches?.find(function (match) {
-            return match.key === "name"
+            return match.key === "name";
           })?.indices;
 
           if (document.item) {
@@ -75,7 +46,11 @@ function Content(props) {
             return <></>;
           return (
             // [ [0, 5], [7, 10] ]
-            <div>
+            <div
+              onClick={function () {
+                setSelected(index);
+              }}
+            >
               {document.name.split("").map(function (char, i) {
                 if (
                   nameIndices &&

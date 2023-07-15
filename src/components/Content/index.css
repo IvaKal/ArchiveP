@@ -5,11 +5,11 @@
     margin: auto;
     gap: 20px;
     justify-content: center;
-    margin-top: 30px;
+    margin-top: 50px;
 }
 .Content > div {
     height: 200px;
-    min-width: 300px;
+    min-width: 200px;
     max-width: 30%;
     flex-grow: 1;
     background-color:#eeeeee;
@@ -28,4 +28,38 @@
     background-color:#e0e0e0;
     padding: 3px 8px;
     border-radius: 6px;
+}
+
+.Content > div:hover{
+    background-color: #e3e3e3;
+    cursor: pointer;
+}
+
+.Popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.2);
+    z-index: 9;
+}
+
+.Document {
+  z-index: 10;
+  position: fixed;
+  background-color: #e0e0e0;
+  width: 900px;
+  height: 600px;
+  left: 50%;
+  top: 50%;
+  transform: translate( -50%, -50%);
+  border-radius: 20px;
+  padding: 30px;
+}
+
+.Document h3{
+    margin-top: 0px;
+    text-align: center;
+    font-family: 'BPG Nateli Mtavruli', sans-serif;
 }
