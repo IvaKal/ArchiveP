@@ -65,48 +65,52 @@ function SideBar(props) {
                   >
                     {catLabels[catKey]}
                   </div>
-                  {catKey === cat &&
-                    Object.keys(cats[cat]).map(function (subCatKey) {
-                      let className = "subCat";
-                      if (subCatKey === subCat) className = "subCat active";
-                      return (
-                        <>
-                          <div
-                            className={className}
-                            onClick={function () {
-                              setSubSubCat("");
-                              if (subCat == subCatKey) {
-                                setSubCat("");
-                              } else {
-                                setSubCat(subCatKey);
-                              }
-                            }}
-                          >
-                            {catLabels[subCatKey]}
-                          </div>
-                          {subCatKey === subCat &&
-                            cats[cat][subCat].map(function (subSubCatKey) {
-                              let className = "subSubCat";
-                              if (subSubCatKey === subSubCat)
-                                className = "subSubCat active";
-                              return (
-                                <div
-                                  className={className}
-                                  onClick={function () {
-                                    if (subSubCat == subSubCatKey) {
-                                      setSubSubCat("");
-                                    } else {
-                                      setSubSubCat(subSubCatKey);
-                                    }
-                                  }}
-                                >
-                                  {catLabels[subSubCatKey]}
-                                </div>
-                              );
-                            })}
-                        </>
-                      );
-                    })}
+                  <div className="subCatContainer">
+                    {catKey === cat &&
+                      Object.keys(cats[cat]).map(function (subCatKey) {
+                        let className = "subCat";
+                        if (subCatKey === subCat) className = "subCat active";
+                        return (
+                          <>
+                            <div
+                              className={className}
+                              onClick={function () {
+                                setSubSubCat("");
+                                if (subCat == subCatKey) {
+                                  setSubCat("");
+                                } else {
+                                  setSubCat(subCatKey);
+                                }
+                              }}
+                            >
+                              {catLabels[subCatKey]}
+                            </div>
+                            <div className="subSubCatContainer">
+                              {subCatKey === subCat &&
+                                cats[cat][subCat].map(function (subSubCatKey) {
+                                  let className = "subSubCat";
+                                  if (subSubCatKey === subSubCat)
+                                    className = "subSubCat active";
+                                  return (
+                                    <div
+                                      className={className}
+                                      onClick={function () {
+                                        if (subSubCat == subSubCatKey) {
+                                          setSubSubCat("");
+                                        } else {
+                                          setSubSubCat(subSubCatKey);
+                                        }
+                                      }}
+                                    >
+                                      {catLabels[subSubCatKey]}
+                                    </div>
+                                  );
+                                })}
+                            </div>
+                          </>
+                        );
+                      })}
+                  </div>
                 </>
               );
             })}

@@ -3,8 +3,9 @@
   display: flex;
   cursor: default;
   font-family: 'BPG Nateli Mtavruli', sans-serif;
-  max-width: 300px;
+  width: 300px;
   justify-content: left;
+
 }
 
 .nav .navMiddle {
@@ -23,31 +24,37 @@
   max-width: 300px;
   margin: 0px;
 }
-.nav > div > .catContainer{
+/* .nav > div > .catContainer{
   display: flex;
   flex-direction: column;
   justify-content: left;
   align-items: left;
   min-height: 100%;
-}
+} */
 
 .nav .cat,.nav .subCat, .nav .subSubCat {
   background-color: transparent;
   cursor: pointer;
   padding: 10px 15px;
-  margin-bottom: 10px;
-  border-radius: 8px;
-  border: 2px solid rgb(102 175 233 / 30%);
-  width: 200px;
+  /* margin-bottom: 10px; */
+  /* border-radius: 8px; */
+  /* border: 2px solid rgb(102 175 233 / 30%); */
   
 }
 .nav .cat:hover,.nav .subCat:hover, .nav .subSubCat:hover {
- background-color: #F0F8FF;
+ background-color: rgba(0, 80, 146, 0.05);
 }
 
-.nav .cat.active,.nav .subCat.active, .nav .subSubCat.active {
-  background: rgb(102 175 233 / 30%);
+.nav .cat.active{
+  /* background: rgb(102 175 233 / 30%); */
+  border-left: 4px solid rgba(0, 80, 146, 0.5);
+  color: rgba(0, 80, 146, 1);
 }
+
+.nav .subCat.active, .nav .subSubCat.active{
+  color: rgba(0, 80, 146, 1);
+  font-weight: bold;
+} 
 
 .sideBarContainer{
   width: 320px;
@@ -67,3 +74,24 @@
   gap: 5px;
 }
 
+.cat .active{
+  display: flex;
+  right: 100px;
+}
+
+.nav .cat{
+  font-weight: bold;
+  border-left: 4px solid transparent;
+}
+
+.nav .subCat {
+  font-family: 'BPG Nateli',sans-serif;
+  font-size: 16px;
+  padding-left: 30px;
+}
+
+.nav .subSubCat {
+  font-family: 'BPG Nateli',sans-serif;
+  font-size: 14px;
+  padding-left: 50px;
+}
