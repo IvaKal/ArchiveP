@@ -9,7 +9,3 @@ body, html {
   font-size: 16px;
 }
 
-.contentContainer{
-  display: flex;
-  justify-content: center;
-}

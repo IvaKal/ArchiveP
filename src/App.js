@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import SideBar from "./components/SideBar";
 import TopBar from "./components/TopBar";
-import Content from "./components/Content";
 import "/node_modules/bpg-nateli/css/bpg-nateli.min.css";
 import "/node_modules/bpg-nateli-mtavruli/css/bpg-nateli-mtavruli.min.css";
 import { sortData } from "./helpers/sort";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Archive from "./pages/Archive";
+import Thesaurus from "./pages/Thesaurus";
+import About from "./pages/About";
+import Landing from "./pages/Landing";
 
 function App() {
   const searchState = useState(null);
@@ -21,29 +24,31 @@ function App() {
     });
   }, []);
   return (
-    <div>
-      <TopBar searchState={searchState} data={data} catState={catState} />
-      <div className="contentContainer">
-        <SideBar
-          searchState={searchState}
-          catState={catState}
-          subCatState={subCatState}
-          subSubCatState={subSubCatState}
-          yearState={yearState}
-          departmentState={departmentState}
-          data={data}
-        />
-        <Content
-          data={data}
-          searchState={searchState}
-          catState={catState}
-          subCatState={subCatState}
-          subSubCatState={subSubCatState}
-          yearState={yearState}
-          departmentState={departmentState}
-        />
+    <Router>
+      <div>
+        <TopBar searchState={searchState} data={data} catState={catState} />
+        <Routes>
+          <Route
+            exact
+            path="/archive"
+            element={
+              <Archive
+                data={data}
+                searchState={searchState}
+                catState={catState}
+                subCatState={subCatState}
+                subSubCatState={subSubCatState}
+                yearState={yearState}
+                departmentState={departmentState}
+              />
+            }
+          ></Route>
+          <Route exact path="/thesaurus" element={<Thesaurus />}></Route>
+          <Route exact path="/about" element={<About />}></Route>
+          <Route exact path="/" element={<Landing />}></Route>
+        </Routes>
       </div>
-    </div>
+    </Router>
   );
 }
 
@@ -82,7 +87,8 @@ export const catLabels = {
   utilities: "ინფრასტრუქტურა, ტრანსპორტი და მშენებლობა",
   privatization: "პრივატიზაცია და სახელმწიფო საკუთრების რესტრუქტურიზაცია",
   international: "საგარეო ეკონომიკური ურთიერთობები",
-  general:"ზოგადი (სექტორთაშორისი) პოლიტიკა; პოლიტიკის დოკუმენტები და ანალიტიკა",
+  general:
+    "ზოგადი (სექტორთაშორისი) პოლიტიკა; პოლიტიკის დოკუმენტები და ანალიტიკა",
   crime: "ეკონომიკური დანაშაული და კორუფცია",
   socialPolitics: "სოციალური პოლიტიკა",
   healthcare: "ჯანდაცვის პოლიტიკა",

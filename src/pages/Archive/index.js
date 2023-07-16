@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { catLabels } from "../../App";
 import "./index.css";
 import Document from "./Document";
+import SideBar from "../../components/SideBar";
 
-function Content(props) {
+function Archive(props) {
   const [cat] = props.catState;
   const [subCat] = props.subCatState;
   const [subSubCat] = props.subSubCatState;
@@ -17,7 +18,8 @@ function Content(props) {
     results = search;
   }
   return (
-    <>
+    <div className="contentContainer">
+      <SideBar {...props} />
       {selected !== null && (
         <Document
           data={data[selected]}
@@ -69,8 +71,8 @@ function Content(props) {
           );
         })}
       </div>
-    </>
+    </div>
   );
 }
 
-export default Content;
+export default Archive;
