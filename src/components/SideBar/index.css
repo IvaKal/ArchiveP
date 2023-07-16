@@ -35,6 +35,8 @@
   background-color: transparent;
   cursor: pointer;
   padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
   /* margin-bottom: 10px; */
   /* border-radius: 8px; */
   /* border: 2px solid rgb(102 175 233 / 30%); */
@@ -73,14 +75,13 @@
   gap: 5px;
 }
 
-.cat .active{
-  display: flex;
-  right: 100px;
-}
-
 .nav .cat{
   font-weight: bold;
   border-left: 4px solid transparent;
+}
+
+.nav .cat >div{
+  font-size: 80%;
 }
 
 .nav .subCat {
@@ -89,8 +90,16 @@
   padding-left: 30px;
 }
 
+.nav .subCat >div{
+  font-size: 80%;
+}
+
 .nav .subSubCat {
   font-family: 'BPG Nateli',sans-serif;
   font-size: 14px;
   padding-left: 50px;
+}
+
+.nav .subSubCat >div{
+  font-size: 80%;
 }

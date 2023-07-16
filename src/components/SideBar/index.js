@@ -10,12 +10,30 @@ function SideBar(props) {
   const [department, setDepartment] = props.departmentState;
   const data = props.data;
   const years = [];
+  const sums = {};
   for (let index = 0; index < data.length; index++) {
-    const year = parseInt(data[index].year);
+    const document = data[index];
+    const year = parseInt(document.year);
     if (!years.includes(year)) {
       years.push(year);
     }
+    if (sums[document.cat]) {
+      sums[document.cat]++;
+    } else {
+      sums[document.cat] = 1;
+    }
+    if (sums[document.subCat]) {
+      sums[document.subCat]++;
+    } else {
+      sums[document.subCat] = 1;
+    }ს
+    if (sums[document.subSubCat]) {
+      sums[document.subSubCat]++;
+    } else {
+      sums[document.subSubCat] = 1;
+    }
   }
+  console.log(sums);
   const departments = [
     "საქართველოს სახელმწიფო მეთაური",
     "საქართველოს პარლამენტი",
@@ -64,6 +82,7 @@ function SideBar(props) {
                     }}
                   >
                     {catLabels[catKey]}
+                    <div>{sums[catLabels[catKey]]}</div>
                   </div>
                   <div className="subCatContainer">
                     {catKey === cat &&
@@ -84,6 +103,7 @@ function SideBar(props) {
                               }}
                             >
                               {catLabels[subCatKey]}
+                              <div>{sums[catLabels[subCatKey]]}</div>
                             </div>
                             <div className="subSubCatContainer">
                               {subCatKey === subCat &&
@@ -103,6 +123,7 @@ function SideBar(props) {
                                       }}
                                     >
                                       {catLabels[subSubCatKey]}
+                                      <div>{sums[catLabels[subSubCatKey]]}</div>
                                     </div>
                                   );
                                 })}

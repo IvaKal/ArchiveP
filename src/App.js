@@ -50,7 +50,7 @@ function App() {
 export const cats = {
   economics: {
     fiscal: ["taxes", "budget", "loans"],
-    monetary: ["bank", "finance"],
+    monetary: ["bank", "finance", "priceRegulation"],
     branches: ["trade", "agro", "industry", "energy", "utilities"],
     privatization: [],
     international: [],
@@ -58,6 +58,8 @@ export const cats = {
     crime: [],
   },
   socialPolitics: {
+    socialCare: [],
+    labor: [],
     healthcare: [],
   },
 };
@@ -69,21 +71,23 @@ export const catLabels = {
   budget: "ეროვნული ბიუჯეტი და ხარჯვა",
   loans: "სახელმწიფო სესხები",
   monetary: "მონეტარული პოლიტიკა",
+  priceRegulation: "ფასების რეგულირება",
   bank: "ეროვნული ბანკი",
   finance: "საფინანსო სექტორი",
   branches: "დარგობრივი პოლიტიკა",
-  trade: "საერთაშორისო ვაჭრობა",
+  trade: "ვაჭრობა",
   agro: "სოფლის მეურნეობა და მიწის პოლიტიკა",
   industry: "მრეწველობა",
   energy: "ენერგეტიკა",
   utilities: "ინფრასტრუქტურა, ტრანსპორტი და მშენებლობა",
-  privatization: "პრივატიზაცია და რესტრუქტურიზაცია",
+  privatization: "პრივატიზაცია და სახელმწიფო საკუთრების რესტრუქტურიზაცია",
   international: "საგარეო ეკონომიკური ურთიერთობები",
-  general:
-    "ზოგადი (სექტორთაშორისი) პოლიტიკა; პოლიტიკის დოკუმენტები და ანალიტიკა",
+  general:"ზოგადი (სექტორთაშორისი) პოლიტიკა; პოლიტიკის დოკუმენტები და ანალიტიკა",
   crime: "ეკონომიკური დანაშაული და კორუფცია",
   socialPolitics: "სოციალური პოლიტიკა",
-  healthcare: "ჯანდაცვა",
+  healthcare: "ჯანდაცვის პოლიტიკა",
+  socialCare: "სოციალური დაცვა",
+  labor: "შრომითი ურთიერთობები და დასაქმება",
 };
 
 export default App;
