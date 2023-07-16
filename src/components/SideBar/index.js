@@ -26,7 +26,7 @@ function SideBar(props) {
       sums[document.subCat]++;
     } else {
       sums[document.subCat] = 1;
-    }ს
+    }
     if (sums[document.subSubCat]) {
       sums[document.subSubCat]++;
     } else {
