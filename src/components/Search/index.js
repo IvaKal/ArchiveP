@@ -35,7 +35,7 @@ function Search(props) {
   const [search, setSearch] = props.searchState;
   return (
     <div className="search">
-      <input
+      <input placeholder="ძიება..."
         onChange={function (event) {
           if (event.target.value === "") {
             setSearch(null);

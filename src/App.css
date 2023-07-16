@@ -11,4 +11,5 @@ body, html {
 
 .contentContainer{
   display: flex;
+  justify-content: center;
 }

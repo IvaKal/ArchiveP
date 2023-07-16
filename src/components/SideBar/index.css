@@ -5,7 +5,6 @@
   font-family: 'BPG Nateli Mtavruli', sans-serif;
   width: 300px;
   justify-content: left;
-
 }
 
 .nav .navMiddle {
@@ -63,7 +62,7 @@
 .sideBar{
   position: fixed;
   overflow: auto;
-  max-height: calc(100% - 37px);
+  height: calc(100% - 37px);
   top: 37px;
 }
 
