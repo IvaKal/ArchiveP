@@ -5,7 +5,6 @@
     border-color: #ccc;
     background-color: white;
     padding: 8px 10px;
-    width: 150px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;    
@@ -42,7 +41,7 @@
     overflow: auto;
     position: absolute;
     z-index: 1;
-    width: 195px;
+    width: 100%;
 }
 
 .DropdownOptions div{

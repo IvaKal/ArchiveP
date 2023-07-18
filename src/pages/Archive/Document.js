@@ -19,6 +19,7 @@ function Document(props) {
         <p><b>მკვეთი ქვე- ან ქვე ქვე სფერო:</b> {props.data.cross}</p>
         <p><b>დოკუმენტის მდებაროება:</b> {props.data.location}</p>
         <p><b>პიროვნება:</b> {props.data.person}</p>
+        {props.data.pdf && <p><a href={props.data.pdf} target="_blank"><img src="/img/doc-white.svg" height="16"/> თანდართული ფაილი</a></p>}
       </div>
       <div className="Popup" onClick={props.onClose}></div>
     </>

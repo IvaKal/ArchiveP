@@ -63,9 +63,11 @@
 }
 .sideBar{
   position: fixed;
-  overflow: auto;
   height: calc(100% - 37px);
   top: 37px;
+  display: flex;
+  flex-direction: column;
+
 }
 
 .dropdownContainer{
@@ -102,4 +104,19 @@
 
 .nav .subSubCat >div{
   font-size: 80%;
+}
+
+.sideBarScroll{
+  overflow: auto;
+}
+.sum{
+  margin-top: auto;
+  padding: 6px;
+}
+
+.sideBar h3{
+  margin: 30px 10px 10px 12px;
+  font-weight: normal;
+  /* text-align: center; */
+
 }

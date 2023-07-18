@@ -1,16 +1,14 @@
 .Content {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     width: 1350px;
-    /* margin: auto; */
     gap: 20px;
-    justify-content: center;
     margin-top: 50px;
+    font-family: 'BPG Nateli Mtavruli', sans-serif;
+    padding: 0px 20px;
 }
 .Content > div {
     height: 200px;
-    min-width: 200px;
-    max-width: 30%;
     flex-grow: 1;
     background-color:rgba(0, 80, 146, 0.02);
     padding: 20px;
@@ -18,16 +16,34 @@
     border-radius: 10px;
     position: relative;
     text-align: left;
+    overflow: hidden;
 
 }
-.documentYear {
+.documentDetails{
     position: absolute;
     bottom: 0;
     right: 0;
     font-size: small;
-    background-color: rgba(0, 0, 0, 0.05);
+    font-family: 'BPG Nateli', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.documentDetails > div {
+    text-align: right;
+    background-color: rgba(0, 0, 0, 0.035);
     padding: 3px 8px;
-    border-radius: 6px;
+
+}
+
+.Content >div > img {
+    width: 20px;
+    height: 20px; 
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+
 }
 
 .Content > div:hover{
@@ -67,4 +83,16 @@
 .contentContainer{
     display: flex;
     justify-content: center;
+  }
+
+  @media only screen and (max-width: 1280px) {
+    .Content {
+        grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media only screen and (max-width: 900px) {
+    .Content {
+        grid-template-columns: 1fr;
+    }
   }

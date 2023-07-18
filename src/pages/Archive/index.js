@@ -64,8 +64,12 @@ function Archive(props) {
                 }
                 return char;
               })}
-              <div className="documentYear">
-                {document.year} · {document.department}{" "}
+              {document.pdf && <img src="/img/doc-white.svg" />}
+              <div className="documentDetails">
+                <div>
+                  {document.day} ოქტომბერი {document.year}
+                </div>
+                <div>{document.department}</div>
               </div>
             </div>
           );

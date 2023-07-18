@@ -3,13 +3,16 @@
   justify-content: center;
   align-items: center;
   position: relative;
+  max-width: 400px;
+  margin: 5px 0px;
 }
 
 .search input {
   padding: 5px 10px;
   border-radius: 30px;
   border: 1px solid #ccc;
-  width: 300px;
+  width: 100%;
+
 }
 
 .search input:focus {
@@ -21,5 +24,5 @@
 .search img {
   height: 18px;
   position: absolute;
-  right: 6px;
+  right: 10px;
 }
