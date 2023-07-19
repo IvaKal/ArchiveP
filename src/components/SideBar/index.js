@@ -1,5 +1,5 @@
 import "./index.css";
-import { catLabels, cats } from "../../App";
+import { catLabels, cats, departments, docTypes } from "../../constants";
 import Dropdown from "../Dropdown";
 
 function SideBar(props) {
@@ -12,6 +12,7 @@ function SideBar(props) {
   const years = [];
   const sums = {};
   const [search] = props.searchState;
+  const [docType, setDocType] = props.docTypeState;
   for (let index = 0; index < data.length; index++) {
     const document = data[index];
     const year = parseInt(document.year);
@@ -34,11 +35,7 @@ function SideBar(props) {
       sums[document.subSubCat] = 1;
     }
   }
-  const departments = [
-    "საქართველოს სახელმწიფო მეთაური",
-    "საქართველოს პარლამენტი",
-    "საქართველოს მინისტრთა საბჭო",
-  ];
+
   const results = search === null ? data : search;
   let sum = 0;
   for (let index = 0; index < results.length; index++) {
@@ -51,7 +48,8 @@ function SideBar(props) {
       (subCat && document.subCat !== catLabels[subCat]) ||
       (subSubCat && document.subSubCat !== catLabels[subSubCat]) ||
       (year && parseInt(document.year) !== year) ||
-      (department && document.department !== department)
+      (department && document.department !== department) ||
+      (docType && document.docType !== docType)
     ) {
       continue;
     }
@@ -63,6 +61,12 @@ function SideBar(props) {
         <h3>საძიებო სისტემა</h3>
         <div className="sideBarScroll">
           <div className="dropdownContainer">
+            <Dropdown
+              options = {docTypes}
+              value = {docType}
+              onChange = {setDocType}
+              placeholder="ყველა ტიპი"
+              />
             <Dropdown
               options={departments}
               value={department}
@@ -156,7 +160,10 @@ function SideBar(props) {
             </div>
           </div>
         </div>
-        <div className="sum">ნაჩვენებია {sum}/{data.length} დოკუმენტი ({Math.round(sum/data.length*100)}%)  </div>
+        <div className="sum">
+          ნაჩვენებია {sum}/{data.length} დოკუმენტი (
+          {Math.round((sum / data.length) * 100)}%){" "}
+        </div>
       </div>
     </div>
   );

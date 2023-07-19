@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { catLabels } from "../../App";
+import { catLabels, docTypes } from "../../constants";
 import "./index.css";
 import Document from "./Document";
 import SideBar from "../../components/SideBar";
@@ -13,6 +13,7 @@ function Archive(props) {
   const [department, setDepartment] = props.departmentState;
   const data = props.data;
   const [selected, setSelected] = useState(null);
+  const [docType, setDocType] = props.docTypeState;
   let results = data;
   if (search !== null) {
     results = search;
@@ -43,7 +44,8 @@ function Archive(props) {
             (subCat && document.subCat !== catLabels[subCat]) ||
             (subSubCat && document.subSubCat !== catLabels[subSubCat]) ||
             (year && parseInt(document.year) !== year) ||
-            (department && document.department !== department)
+            (department && document.department !== department) ||
+            (docType && docType !==document.docType)
           )
             return <></>;
           return (

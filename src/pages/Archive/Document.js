@@ -10,7 +10,7 @@ function Document(props) {
         <p><b>ფონდის N:</b> {props.data.fundN}</p>
         <p><b>ანაწერის N:</b> {props.data.excerpt}</p>
         <p><b>საქმის N:</b> {props.data.case}</p>
-        <p><b>დოკუმენტის ტიპი:</b> {props.data.documentType}</p>
+        <p><b>დოკუმენტის ტიპი:</b> {props.data.docType}</p>
         <p><b>ფონდის სახელი:</b> {props.data.fund}</p>
         <p><b>ორგანო/დაწესებულება/ინიცატორი:</b> {props.data.department}</p>
         <p><b>სფერო:</b> {props.data.cat}</p>

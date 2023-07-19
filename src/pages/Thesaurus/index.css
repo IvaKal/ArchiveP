@@ -1,0 +1,74 @@
+.alphabet{
+    display: flex;
+    justify-content: space-around;
+    max-width: 900px;
+    margin: auto;
+    font-family: 'BPG Nateli Mtavruli', sans-serif;
+    font-weight: bold;
+
+
+}
+
+.alphabet a.goodClass{
+    color: #333;
+}
+.alphabet a.badClass{
+    color: #999;
+    cursor: default;
+    text-decoration: none;
+}
+.thesaurusContainer{
+    padding-top: 70px;
+    max-width:1200px ;
+    margin: auto;
+}
+.thesaurusChar h4{
+ position: sticky;
+ top: 50px;
+ margin-bottom: 0;
+}
+
+.thesaurusWord {
+    margin-left: 50px;
+    display: block;
+    margin-bottom: 6px;
+    cursor: pointer;
+    color: #333;
+
+}
+
+.thesaurusContent{
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+
+}
+
+.thesaurusDocs{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: end;
+    gap: 5px;
+    
+}
+
+.thesaurusDocs a{
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.thesaurusDocs a img{
+    height: 24px;
+}
+
+.thesaurusWords{
+    flex-grow: 1;
+}
+
+.thesaurusWord.active{
+    text-decoration: underline;
+    
+}

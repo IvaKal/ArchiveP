@@ -18,6 +18,7 @@ function App() {
   const [data, setData] = useState([]);
   const yearState = useState();
   const departmentState = useState("");
+  const docTypeState = useState("");
   useEffect(function () {
     fetch("/data.json").then(async function (res) {
       setData((await res.json()).sort(sortData));
@@ -40,6 +41,7 @@ function App() {
                 subSubCatState={subSubCatState}
                 yearState={yearState}
                 departmentState={departmentState}
+                docTypeState={docTypeState}
               />
             }
           ></Route>
@@ -51,49 +53,5 @@ function App() {
     </Router>
   );
 }
-
-export const cats = {
-  economics: {
-    fiscal: ["taxes", "budget", "loans"],
-    monetary: ["bank", "finance", "priceRegulation"],
-    branches: ["trade", "agro", "industry", "energy", "utilities"],
-    privatization: [],
-    international: [],
-    general: [],
-    crime: [],
-  },
-  socialPolitics: {
-    socialCare: [],
-    labor: [],
-    healthcare: [],
-  },
-};
-
-export const catLabels = {
-  economics: "ეკონომიკა",
-  fiscal: "ფისკალური პოლიტიკა",
-  taxes: "გადასახადები",
-  budget: "ეროვნული ბიუჯეტი და ხარჯვა",
-  loans: "სახელმწიფო სესხები",
-  monetary: "მონეტარული პოლიტიკა",
-  priceRegulation: "ფასების რეგულირება",
-  bank: "ეროვნული ბანკი",
-  finance: "საფინანსო სექტორი",
-  branches: "დარგობრივი პოლიტიკა",
-  trade: "ვაჭრობა",
-  agro: "სოფლის მეურნეობა და მიწის პოლიტიკა",
-  industry: "მრეწველობა",
-  energy: "ენერგეტიკა",
-  utilities: "ინფრასტრუქტურა, ტრანსპორტი და მშენებლობა",
-  privatization: "პრივატიზაცია და სახელმწიფო საკუთრების რესტრუქტურიზაცია",
-  international: "საგარეო ეკონომიკური ურთიერთობები",
-  general:
-    "ზოგადი (სექტორთაშორისი) პოლიტიკა; პოლიტიკის დოკუმენტები და ანალიტიკა",
-  crime: "ეკონომიკური დანაშაული და კორუფცია",
-  socialPolitics: "სოციალური პოლიტიკა",
-  healthcare: "ჯანდაცვის პოლიტიკა",
-  socialCare: "სოციალური დაცვა",
-  labor: "შრომითი ურთიერთობები და დასაქმება",
-};
 
 export default App;

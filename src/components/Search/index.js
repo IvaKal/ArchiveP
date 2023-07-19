@@ -15,7 +15,7 @@ function Search(props) {
             // "fundN",
             // "excerpt",
             // "case",
-            "documentType",
+            "docType",
             "fund",
             "department",
             "cat",
