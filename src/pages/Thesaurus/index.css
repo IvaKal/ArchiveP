@@ -18,6 +18,7 @@
     text-decoration: none;
 }
 .thesaurusContainer{
+    padding: 20px;
     padding-top: 70px;
     max-width:1200px ;
     margin: auto;
