@@ -4,7 +4,14 @@ import "./index.css";
 
 function Thesaurus() {
   const objerct = {};
-  const words = persons.concat(topics).sort();
+  const [cat, setCat] = useState("");
+  const words = (
+    cat === "topic"
+      ? topics
+      : cat === "person"
+      ? persons
+      : persons.concat(topics)
+  ).sort();
   const [active, setActive] = useState("");
 
   words.forEach(function (word) {
@@ -33,6 +40,25 @@ function Thesaurus() {
       </div>
       <div className="thesaurusContent">
         <div className="thesaurusWords">
+          <div className="cat">
+            <a
+              className={cat === "topic" ? "catActive" : ""}
+              onClick={function () {
+                setCat(cat === "topic" ? "" : "topic");
+              }}
+            >
+              თემატური
+            </a>
+            {" / "}
+            <a
+              className={cat === "person" ? "catActive" : ""}
+              onClick={function () {
+                setCat(cat === "person" ? "" : "person");
+              }}
+            >
+              პიროვნებები
+            </a>
+          </div>
           {Object.keys(objerct).map(function (char) {
             return (
               <div key={char} className="thesaurusChar" id={char}>
@@ -40,7 +66,11 @@ function Thesaurus() {
                 {objerct[char].map(function (word) {
                   return (
                     <a
-                      className={active===word ? "thesaurusWord active" : "thesaurusWord"}
+                      className={
+                        active === word
+                          ? "thesaurusWord active"
+                          : "thesaurusWord"
+                      }
                       key={word}
                       onClick={function () {
                         setActive(word);
@@ -54,10 +84,17 @@ function Thesaurus() {
             );
           })}
         </div>
-        <div className="thesaurusDocs"> <h4>{active}</h4>
+        <div className="thesaurusDocs">
+          {" "}
+          <h4>{active}</h4>
           {thesaurusData.map(function (doc) {
             if (doc.words.includes(active)) {
-              return <a href={doc.url} target="_blank"> <img src="/img/doc-white.svg"/> {doc.name}</a>
+              return (
+                <a href={doc.url} target="_blank">
+                  {" "}
+                  <img src="/img/doc-white.svg" /> {doc.name}
+                </a>
+              );
             }
           })}
         </div>

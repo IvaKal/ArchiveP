@@ -69,7 +69,24 @@
     flex-grow: 1;
 }
 
-.thesaurusWord.active{
+.thesaurusWords .active{
     text-decoration: underline;
     
+}
+
+.thesaurusWords .cat {
+    margin-top: 30px;
+    padding-left: 20px;   
+
+}
+.thesaurusWords .cat a{
+    color: #999;
+    cursor: pointer;
+
+}
+
+.thesaurusWords .cat a.catActive{
+    color:  #333;
+    text-decoration: underline;
+
 }

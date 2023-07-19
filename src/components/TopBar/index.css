@@ -44,3 +44,10 @@
   color: #fff;
   border-bottom: 8px solid white;
 }
+
+.topNav a.logo{
+  font-family: "montserrat", sans-serif;
+  border-bottom: 0;
+  cursor: default;
+  color: #fff;
+}

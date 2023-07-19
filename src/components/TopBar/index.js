@@ -9,12 +9,15 @@ function TopBar(props) {
     <div className="TopBar">
       <div className="topBarContainer">
         <div className="topNav">
-          <Link className={pathname === "/" ? "active" : ""} to="/">
-            მთავარი
+        <Link
+            className="logo"
+
+          >
+            GEO CHRONICS
           </Link>
           <Link
-            className={pathname === "/archive" ? "active" : ""}
-            to="/archive"
+            className={pathname === "/" ? "active" : ""}
+            to="/"
           >
             თემატური ძიება
           </Link>

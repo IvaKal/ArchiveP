@@ -9,6 +9,7 @@ import Archive from "./pages/Archive";
 import Thesaurus from "./pages/Thesaurus";
 import About from "./pages/About";
 import Landing from "./pages/Landing";
+import "@fontsource/montserrat/300.css";
 
 function App() {
   const searchState = useState(null);
@@ -31,7 +32,7 @@ function App() {
         <Routes>
           <Route
             exact
-            path="/archive"
+            path="/"
             element={
               <Archive
                 data={data}
@@ -47,7 +48,7 @@ function App() {
           ></Route>
           <Route exact path="/thesaurus" element={<Thesaurus />}></Route>
           <Route exact path="/about" element={<About />}></Route>
-          <Route exact path="/" element={<Landing />}></Route>
+          {/* <Route exact path="/" element={<Landing />}></Route> */}
         </Routes>
       </div>
     </Router>

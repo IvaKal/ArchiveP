@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fontsource/montserrat": "^5.0.5",
     "bpg-nateli": "^1.0.0",
     "bpg-nateli-mtavruli": "^1.0.0",
     "fuse.js": "^6.6.2",

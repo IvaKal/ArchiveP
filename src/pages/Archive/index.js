@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { catLabels, docTypes } from "../../constants";
+import { catLabels, docTypes, months } from "../../constants";
 import "./index.css";
 import Document from "./Document";
 import SideBar from "../../components/SideBar";
@@ -69,7 +69,7 @@ function Archive(props) {
               {document.pdf && <img src="/img/doc-white.svg" />}
               <div className="documentDetails">
                 <div>
-                  {document.day} ოქტომბერი {document.year}
+                  {document.day} {months[document.month-1]} {document.year}
                 </div>
                 <div>{document.department}</div>
               </div>
