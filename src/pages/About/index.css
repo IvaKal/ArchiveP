@@ -1,0 +1,40 @@
+.mainText {
+    padding-top: 70px;
+    padding-bottom: 70px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.textHeader{
+    font-weight: bold;
+    font-family: 'BPG Nateli Mtavruli', sans-serif;
+    display: flex;
+    justify-content: space-around;
+}
+
+.firstImage{
+    padding-top: 32px;
+    display: flex;
+    justify-content: center;
+    height: 200px;
+    margin: auto;
+}
+
+.secImage{
+    padding-top: 32px;
+    display: flex;
+    justify-content: center;
+    height: 500px;
+    margin: auto;
+}
+
+
+.ScreenshotDescription {
+    padding-top: 8px;
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+    font-size: 14px;
+    text-align: center;
+
+}
