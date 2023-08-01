@@ -20,6 +20,14 @@
   flex-grow: 1;
 }
 
+.topNav{
+  white-space: nowrap;
+}
+
+.rBll {
+  flex-shrink: 10;
+}
+
 .topNav a{
   color: #eee;
   font-weight: bold;

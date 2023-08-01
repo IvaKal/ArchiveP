@@ -1,92 +1,101 @@
-.alphabet{
-    display: flex;
-    justify-content: space-around;
-    max-width: 900px;
-    margin: auto;
-    font-family: 'BPG Nateli Mtavruli', sans-serif;
-    font-weight: bold;
-
-
+.alphabet {
+  display: flex;
+  justify-content: space-around;
+  max-width: 900px;
+  margin: auto;
+  font-family: "BPG Nateli Mtavruli", sans-serif;
+  font-weight: bold;
 }
 
-.alphabet a.goodClass{
-    color: #333;
+.alphabet a.goodClass {
+  color: #333;
 }
-.alphabet a.badClass{
-    color: #999;
-    cursor: default;
-    text-decoration: none;
+.alphabet a.badClass {
+  color: #999;
+  cursor: default;
+  text-decoration: none;
 }
-.thesaurusContainer{
-    padding: 20px;
-    padding-top: 70px;
-    max-width:1200px ;
-    margin: auto;
+.thesaurusContainer {
+  padding: 20px;
+  padding-top: 70px;
+  max-width: 1200px;
+  margin: auto;
 }
-.thesaurusChar h4{
- position: sticky;
- top: 50px;
- margin-bottom: 0;
+.thesaurusChar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.thesaurusChar h4 {
+  position: sticky;
+  top: 50px;
+  margin-bottom: 0;
 }
 
 .thesaurusWord {
-    margin-left: 50px;
-    display: block;
-    margin-bottom: 6px;
-    cursor: pointer;
-    color: #333;
-
+  margin-left: 50px;
+  display: block;
+  margin-bottom: 6px;
+  cursor: pointer;
+  color: #333;
 }
 
-.thesaurusContent{
-    display: flex;
-    justify-content: space-between;
-    text-align: left;
-
+.thesaurusContent {
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
 }
 
-.thesaurusDocs{
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    align-items: end;
-    gap: 5px;
-    
+.thesaurusDocs {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: end;
+  gap: 5px;
 }
 
-.thesaurusDocs a{
-    color: #333;
-    display: flex;
-    align-items: center;
-    gap: 5px;
+.thesaurusDocs a {
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
-.thesaurusDocs a img{
-    height: 24px;
+.thesaurusDocs a img {
+  height: 24px;
 }
 
-.thesaurusWords{
-    flex-grow: 1;
+.thesaurusWords {
+  flex-grow: 1;
+  flex-shrink: 0;
 }
 
-.thesaurusWords .active{
-    text-decoration: underline;
-    
+.thesaurusWords .active {
+  text-decoration: underline;
 }
 
 .thesaurusWords .cat {
-    margin-top: 30px;
-    padding-left: 20px;   
-
+  margin-top: 30px;
+  padding-left: 20px;
 }
-.thesaurusWords .cat a{
-    color: #999;
-    cursor: pointer;
-
+.thesaurusWords .cat a {
+  color: #999;
+  cursor: pointer;
 }
 
-.thesaurusWords .cat a.catActive{
-    color:  #333;
-    text-decoration: underline;
+.thesaurusWords .cat a.catActive {
+  color: #333;
+  text-decoration: underline;
+}
 
+.clear {
+  height: 16px;
+  opacity: 0.6;
+  vertical-align: bottom;
+  margin-left: 20px;
+}
+.clear:hover {
+  opacity: 0.8;
+  cursor: pointer;
 }

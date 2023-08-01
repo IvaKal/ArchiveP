@@ -9,16 +9,8 @@ function TopBar(props) {
     <div className="TopBar">
       <div className="topBarContainer">
         <div className="topNav">
-        <Link
-            className="logo"
-
-          >
-            GEO CHRONICS
-          </Link>
-          <Link
-            className={pathname === "/" ? "active" : ""}
-            to="/"
-          >
+          <Link className="logo">GEO CHRONICS</Link>
+          <Link className={pathname === "/" ? "active" : ""} to="/">
             თემატური ძიება
           </Link>
           <Link
@@ -32,7 +24,7 @@ function TopBar(props) {
           </Link>
         </div>
         <Search searchState={props.searchState} data={props.data} />
-        <div></div>
+        <div className="rBll"></div>
       </div>
     </div>
   );

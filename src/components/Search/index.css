@@ -4,7 +4,9 @@
   align-items: center;
   position: relative;
   max-width: 400px;
-  margin: 5px 0px;
+  margin: 5px 10px;
+  flex-shrink: 1;
+  flex-basis: 400px !important;
 }
 
 .search input {

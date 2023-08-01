@@ -12,7 +12,8 @@ function Thesaurus() {
       ? persons
       : persons.concat(topics)
   ).sort();
-  const [active, setActive] = useState("");
+  // const [active, setActive] = useState("");
+  const [selections, setSelections] = useState([]);
 
   words.forEach(function (word) {
     const char = word.split("").find(function (char) {
@@ -58,6 +59,15 @@ function Thesaurus() {
             >
               პიროვნებები
             </a>
+            {selections.length !== 0 && (
+              <img
+                className="clear"
+                src="/img/clear.svg"
+                onClick={function () {
+                  setSelections([]);
+                }}
+              />
+            )}
           </div>
           {Object.keys(objerct).map(function (char) {
             return (
@@ -67,13 +77,21 @@ function Thesaurus() {
                   return (
                     <a
                       className={
-                        active === word
+                        selections.includes(word)
                           ? "thesaurusWord active"
                           : "thesaurusWord"
                       }
                       key={word}
                       onClick={function () {
-                        setActive(word);
+                        if (selections.includes(word)) {
+                          setSelections(
+                            selections.filter(function (wW) {
+                              return word !== wW;
+                            })
+                          );
+                        } else {
+                          setSelections(selections.concat(word));
+                        }
                       }}
                     >
                       {word}
@@ -85,18 +103,22 @@ function Thesaurus() {
           })}
         </div>
         <div className="thesaurusDocs">
-          {" "}
-          <h4>{active}</h4>
-          {thesaurusData.map(function (doc) {
-            if (doc.words.includes(active)) {
-              return (
-                <a href={doc.url} target="_blank">
-                  {" "}
-                  <img src="/img/doc-white.svg" /> {doc.name}
-                </a>
-              );
-            }
-          })}
+          <h4>{selections.join("; ")}</h4>
+          {selections.length !== 0 &&
+            thesaurusData.map(function (doc) {
+              if (
+                selections.every(function (jP) {
+                  return doc.words.includes(jP);
+                })
+              ) {
+                return (
+                  <a href={doc.url} target="_blank">
+                    <img src="/img/doc-white.svg" /> {doc.name}
+                  </a>
+                );
+              }
+              return "";
+            })}
         </div>
       </div>
     </div>
